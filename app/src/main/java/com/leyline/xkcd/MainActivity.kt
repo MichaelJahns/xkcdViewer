@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(ComicViewModel::class.java)
 
         val comicApi = RetrofitObject.getInstance().create(ComicApi::class.java)
-
+//        cahgne
         speedTestRetrofit(comicApi)
     }
 
