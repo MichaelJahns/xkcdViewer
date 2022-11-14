@@ -4,16 +4,16 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Comic(
+data class ComicDataTransferObject(
     val num: Int,
-    private val month: Int,
-    private val link: String?,
-    private val year: String,
-    private val news: String?,
-    private val safe_title: String,
-    private val transcript: String,
-    private val alt: String,
-    private val img: String,
-    private val title: String,
-    private val day: String,
+    val month: String,
+    val link: String?,
+    val year: String,
+    val news: String?,
+    val safe_title: String,
+    val transcript: String,
+    val alt: String,
+    val img: String,
+    val title: String,
+    val day: String,
 ): Parcelable
