@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">xkcd</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_to_first_comic"> |&lt; </string>
+    <string name="action_to_last_comic"> &lt; </string>
+    <string name="action_to_next_comic"> > </string>
+    <string name="action_to_latest_comic"> >| </string>
+    <string name="action_to_comic_info"> (?) </string>
 </resources>

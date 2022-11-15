@@ -9,5 +9,5 @@ interface ComicApi {
     suspend fun getLatestComicAsync() : ComicDataTransferObject
 
     @GET("{id}/info.0.json")
-    suspend fun getComicByIdAsync(@Path("id") id: Long) : ComicDataTransferObject
+    suspend fun getComicByIdAsync(@Path("id") id: Int) : ComicDataTransferObject
 }
