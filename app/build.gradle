@@ -51,6 +51,9 @@ dependencies {
     // OkHttp
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     implementation 'androidx.test.ext:junit-ktx:1.1.4'
+    // Fresco
+    implementation 'com.facebook.fresco:fresco:2.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     /** Test Dependencies */
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.squareup.okhttp3:okhttp:4.10.0'
