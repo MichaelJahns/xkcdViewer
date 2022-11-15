@@ -8,11 +8,6 @@ Screen 1: SingleComicViewFragment to display a single comic at a time, fresco fo
 
 Screen 2: SingleComicInfoFragment to display a single comics complete metadata without an image, including title, alt text, and transcript, release Date build from year/mon/day
 
-
-My idea for a fluid user experience is to create some of that functionality myself, comicsByRange and comicsByTitle (fuzzy matching). To do this I want to mask inside the initial load of the application a group of about ~3k get requests and subsequent writes into a relational database. These requests will contain the comic's entire history of metadata(everything but the images).
-Whether or not I will find success with this project, requires that I can, without locking up or creating a negative user experience:
-* Make these requests quickly
-* Make these writes quickly
 ### Dependencies
 * GSON:       Serialize/Deserialize
 * Retrofit:   Type-Safe Http Client
