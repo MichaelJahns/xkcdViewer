@@ -1,12 +1,19 @@
 package com.leyline.xkcd.comic
 
-/**
- * The model for the [ComicViewFragment].
- *
- * @param number the unique id and number of the comic
- * @param title the title of the comic
- */
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class ComicDataModel(
-    val number: Int,
-    val title: String
-)
+    val num: Int,
+    val month: String,
+    val link: String?,
+    val year: String,
+    val news: String?,
+    val safe_title: String,
+    val transcript: String,
+    val alt: String,
+    val img: String,
+    val title: String,
+    val day: String,
+): Parcelable

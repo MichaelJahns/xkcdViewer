@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.facebook.drawee.view.SimpleDraweeView
 import com.leyline.xkcd.comic.ComicViewModel
@@ -22,14 +21,6 @@ class SingleComicViewFragment : Fragment() {
     private lateinit var comicInfoTextView: TextView
     private lateinit var nextComicTextView: TextView
     private lateinit var latestComicTextView: TextView
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        lifecycleScope.launchWhenCreated {
-            viewModel.updateLatestComicId()
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,7 +58,7 @@ class SingleComicViewFragment : Fragment() {
     private fun initClickListeners() {
         firstComicTextView.setOnClickListener {
             lifecycleScope.launch {
-                viewModel.getFirstComic()
+                viewModel.requestFirstComic()
             }
         }
         lastComicTextView.setOnClickListener {
@@ -81,7 +72,7 @@ class SingleComicViewFragment : Fragment() {
         }
         latestComicTextView.setOnClickListener {
             lifecycleScope.launch {
-                viewModel.getNewestComic()
+                viewModel.requestLatestComic()
             }
         }
     }

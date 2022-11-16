@@ -4,15 +4,27 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.leyline.xkcd.util.ComicApi
-import com.leyline.xkcd.util.RetrofitObject
 import org.koin.java.KoinJavaComponent.inject
-import retrofit2.create
+
+val comic404 = ComicDataModel(
+    404,
+    "Unknown",
+    "",
+    "Unknown",
+    "",
+    "404 Not Found",
+    "",
+    "404 Joke Not Found",
+    "",
+    "404 Not Found",
+    "Unknown"
+)
 
 class ComicViewModel : ViewModel() {
 
     private val comicApi: ComicApi by inject(ComicApi::class.java)
-    private val _uiState = MutableLiveData<ComicDataTransferObject>()
-    val uiState: LiveData<ComicDataTransferObject> = _uiState
+    private val _uiState = MutableLiveData<ComicDataModel>()
+    val uiState: LiveData<ComicDataModel> = _uiState
 
     private val latestComicId = MutableLiveData<Int>()
     val currentComicId = MutableLiveData<Int>()
@@ -23,21 +35,38 @@ class ComicViewModel : ViewModel() {
     }
 
     suspend fun getComicById(id: Int) {
-        val comic = comicApi.getComicByIdAsync(id)
-        _uiState.value = comic
+        if (id == 404) {
+            _uiState.value = comic404
+        } else {
+            val comic = comicApi.getComicByIdAsync(id)
+            _uiState.value = comic
+        }
+
     }
 
-    suspend fun getFirstComic() {
+    suspend fun requestFirstComic() {
         val comic = comicApi.getComicByIdAsync(1)
         currentComicId.value = comic.num
     }
 
-    suspend fun getNewestComic() {
-        val comic = comicApi.getLatestComicAsync()
-        currentComicId.value = comic.num
+    suspend fun requestComicById(id: Int) {
+        /**If latestComicId is null call requestLatestComic() */
+        if (latestComicId.value != null) {
+            /** When a request goes out of bounds set current id to the mock 404 error comic */
+            if (id > latestComicId.value!! || id < 1) {
+                currentComicId.value = 404
+            } else {
+                currentComicId.value = id
+            }
+        } else {
+            requestLatestComic()
+            requestComicById(id)
+        }
+
     }
 
-    suspend fun updateLatestComicId() {
+    /**This is a required call. if latestComicId is null the above fails. */
+    suspend fun requestLatestComic() {
         val comic = comicApi.getLatestComicAsync()
         currentComicId.value = comic.num
         latestComicId.value = comic.num
