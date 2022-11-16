@@ -3,7 +3,9 @@ package com.leyline.xkcd
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.leyline.xkcd.comic.ComicViewModel
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ComicViewModel
@@ -17,14 +19,21 @@ class MainActivity : AppCompatActivity() {
         singleComicViewFragment = SingleComicViewFragment()
         singleComicInfoFragment = SingleComicInfoFragment()
         initObservers()
+        initView()
     }
 
-    private fun initObservers() {
+    private fun initView() {
         supportFragmentManager
             .beginTransaction()
             .add(R.id.mainFrameLayout, singleComicViewFragment)
             .commit()
+        viewModel.setInfoScreen(isShowing = false)
+        lifecycleScope.launch {
+            viewModel.requestLatestComic()
+        }
+    }
 
+    private fun initObservers() {
         viewModel.showInfoScreen.observe(this) { isShowing ->
             if (isShowing) {
                 supportFragmentManager
@@ -39,6 +48,5 @@ class MainActivity : AppCompatActivity() {
                     .commit()
             }
         }
-        viewModel.setInfoScreen(isShowing = false)
     }
 }
