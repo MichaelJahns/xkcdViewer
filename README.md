@@ -14,5 +14,14 @@ Screen 2: SingleComicInfoFragment to display a single comics complete metadata w
 * Coroutune:  Kotlin Threading
 * Freso:      Image Loading and Placeholders
 
+### Retrospective
+The nature of the material available on this API was comics, and that had some implications I was ready to deal with, and some I was not.
+* I was hoping resizing would be apart of Fresco alas I couldn't figure it out. One comic in eight looks adequate. A big reason I was eager to try Fresco was for image resizing, but the only option I found inside of its Documentations was for jpegs only and the comic links to all pngs. Part of my attempts to mitigate this issue was giving up even more of the view for the comic image, hiding all the meta data on the additional screen.
+* I did attempt to see how quickly I could request the entire comic catalouge, my first attempts took nearly five minutes. Upon Introduction of parcelize and that time dropped to under 4 minutes. Must faster, but still not fast enough to attempt to do it secretly.
+
+### Stretch goals
+* Introduce image resizing. Most comics are neigh unreadable.
+* Cache comic history into Room database. Comics are static objects, Randall has no cause to go backwards in his comic history and make updates, I would have liked to store the entire comic catalouges metadata in a local database and request images as needed. This would minimize repeat requests, and would allow me to introduce features I would have liked to have on the API available on my DAO, ie. comicsByIdRange, comicsByTitle, comicsByYear, comicsByMonth, comicsByDay, etc..
+
 #### Disclaimers and Licenses
 I did not write or contribute in any meaningful way to the production or distribution any xkcd comic(s) by Randall Munroe, they are licensed under the [Creative Commons Attribution-NonCommerical 2.5 License](https://xkcd.com/license.html) for noncommerical reuse and copy. 

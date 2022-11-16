@@ -23,7 +23,7 @@ class RetrofitTest {
 
     @Test
     fun getComicById_Number1_shouldBeFirstComic() = runBlocking<Unit> {
-        val response = service.getComicByIdAsync(1L)
+        val response = service.getComicByIdAsync(1)
 
         assertTrue(
             "First comic was expected to have been released in January",
@@ -61,7 +61,7 @@ class RetrofitTest {
 
     @Test
     fun getComicById_Number100_shouldBeHundredthComic() = runBlocking<Unit> {
-        val response = service.getComicByIdAsync(100L)
+        val response = service.getComicByIdAsync(100)
 
         assertTrue(
             "Hundredth comic was expected to have been released in May",
@@ -99,7 +99,7 @@ class RetrofitTest {
 
     @Test
     fun getComicById_Number1000_shouldBeThousandthComic() = runBlocking<Unit> {
-        val response = service.getComicByIdAsync(1000L)
+        val response = service.getComicByIdAsync(1000)
         assertTrue(
             "Thousandth comic was expected to have been released in January",
             response.month == "1"
@@ -113,16 +113,16 @@ class RetrofitTest {
             response.safe_title == "1000 Comics"
         )
 //        assertTrue(
-//            "Hundredth comic was expected to have a transcript as follow '[[Picture shows a pathway winding through trees to a sink inside a house, out to some swings and back to ths sink, out to a ball and back to the sink...]]\\nCaption: Jeffy's ongoing struggle with obsessive-compulsive disorder\\n{{alt text: This was my friend David's idea}}'",
-//            response.transcript == "[[Picture shows a pathway winding through trees to a sink inside a house, out to some swings and back to ths sink, out to a ball and back to the sink...]]\nCaption: Jeffy's ongoing struggle with obsessive-compulsive disorder\n{{alt text: This was my friend David's idea}}"
+//            "Thousandth comic was expected to have a transcript as follow ''",
+//            response.transcript == ""
 //        )
 //        assertTrue(
-//            "Hundredth comic was expected to have an alt text as follows 'This was my friend David's idea'",
-//            response.alt == "This was my friend David's idea"
+//            "Thousandth comic was expected to have an alt text as follows ''",
+//            response.alt == ""
 //        )
 //        assertTrue(
-//            "Hundredth comic was expected to have its image at address 'https://imgs.xkcd.com/comics/family_circus.jpg',",
-//            response.img == "https://imgs.xkcd.com/comics/family_circus.jpg"
+//            "Thousandth comic was expected to have its image at address '',",
+//            response.img == ""
 //        )
         assertTrue(
             "Thousandth comic was expected to have its title as follows '1000 Comics'",

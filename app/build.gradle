@@ -34,7 +34,9 @@ android {
 
 dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.4'
     implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     /** Additional Dependencies */
@@ -48,16 +50,21 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    // OkHttp
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
-    implementation 'androidx.test.ext:junit-ktx:1.1.4'
     // Fresco
     implementation 'com.facebook.fresco:fresco:2.3.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // Koin
+    implementation "io.insert-koin:koin-core:3.2.2"
+    implementation "io.insert-koin:koin-android:3.2.2"
+
     /** Test Dependencies */
+    // Koin for Tests
+    testImplementation "io.insert-koin:koin-test-junit4:3.2.2"
+    // Mockito
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.squareup.okhttp3:okhttp:4.10.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
+
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 

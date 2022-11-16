@@ -7,4 +7,12 @@
     <string name="action_to_next_comic"> > </string>
     <string name="action_to_latest_comic"> >| </string>
     <string name="action_to_comic_info"> (?) </string>
+    <string name="metadata_date_label"> Originally released upon  :</string>
+    <string name="metadata_number_label">Number :</string>
+    <string name="metadata_safe_title_label">Comic Title :</string>
+    <string name="metadata_link_label">Link :</string>
+    <string name="metadata_news_label">News :</string>
+    <string name="metadata_title_label">Titled :</string>
+    <string name="metadata_transcript_label">Transcript :</string>
+    <string name="metadata_alt_label">Alt :</string>
 </resources>
