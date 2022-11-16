@@ -6,9 +6,13 @@ The limitations of the the public API means I cannot query a range of entries or
 
 Screen 1: SingleComicViewFragment to display a single comic at a time, fresco for image loading. This view has a navigation bar to allow users to move in a limited fashion through the comic history, lite logic to ensure the id never goes out of bounds
 
-![SingleComicViewFragment Screenshot](/)
+![SingleComicViewFragment Portrait Screenshot](app/src/main/res/drawable/portraitDecentScreencap.PNG)
+
+![SingleComicViewFragment Landscape Screenshot](app/src/main/res/drawable/landscapeDecentScreencap.PNG)
 
 Screen 2: SingleComicInfoFragment to display a single comics complete metadata without an image, including title, alt text, and transcript, release date
+
+![SingleComicInfoFragment Portrait Screenshot](app/src/main/res/drawable/infoView.PNG)
 
 ### Dependencies
 * GSON:       Serialize/Deserialize
@@ -19,7 +23,12 @@ Screen 2: SingleComicInfoFragment to display a single comics complete metadata w
 
 ### Retrospective
 The nature of the material available on this API was comics, and that had some implications I was ready to deal with, and some I was not.
-* I was hoping resizing would be apart of Fresco alas I couldn't figure it out. One comic in eight looks adequate. A big reason I was eager to try Fresco was for image resizing, but the only option I found inside of its Documentations was for jpegs only and the comic links to all pngs. Part of my attempts to mitigate this issue was giving up even more of the view for the comic image, hiding all the meta data on the additional screen.
+* I was hoping resizing would be apart of Fresco alas I couldn't figure it out. One comic in eight looks adequate. A big reason I was eager to try Fresco was for image resizing, but the only option I found inside of its Documentations was for jpegs only and the comic links to all pngs. Part of my attempts to mitigate this issue was giving up even more of the view for the comic image, hiding all the meta data on the additional screen. But even still we often end up with images like below, where we are so zoomed in the content becomes nonsense. 
+
+![SingleComicViewFragment Portrait Screenshot](app/src/main/res/drawable/portraitIndecentScreencap.PNG)
+
+![SingleComicViewFragment Landscape Screenshot](app/src/main/res/drawable/landscapeIndecentScreencap.PNG)
+
 * I did attempt to see how quickly I could request the entire comic catalouge, my first attempts took nearly five minutes. Upon Introduction of parcelize and that time dropped to under 4 minutes. Must faster, but still not fast enough to attempt to do it secretly.
 * My current position is the first professional setting I have been in that has practiced test writing. It is admitably a weakness of mine I am eager to patch up. I took this challenge as the oppurtunity to see how much I have learned. Theres still a fair bit I dont understand, and I imagine even more that I dont understand why I don't understand it yet. 
 
