@@ -105,25 +105,28 @@ class RetrofitTest {
             response.month == "1"
         )
         assertTrue("Thousandth comic was expected to have the first id", response.num == 1000)
-        assertTrue("Thousandth comic was expected to have a link as follows 'https://xkcd.com/1000/large/'", response.link == "https://xkcd.com/1000/large/")
+        assertTrue(
+            "Thousandth comic was expected to have a link as follows 'https://xkcd.com/1000/large/'",
+            response.link == "https://xkcd.com/1000/large/"
+        )
         assertTrue("Thousandth comic was expected to have release in 2006", response.year == "2012")
         assertTrue("Thousandth comic was expected to have an empty news", response.news == "")
         assertTrue(
             "Thousandth comic was expected to have its safe_title as follows '1000 Comics'",
             response.safe_title == "1000 Comics"
         )
-//        assertTrue(
-//            "Thousandth comic was expected to have a transcript as follow ''",
-//            response.transcript == ""
-//        )
-//        assertTrue(
-//            "Thousandth comic was expected to have an alt text as follows ''",
-//            response.alt == ""
-//        )
-//        assertTrue(
-//            "Thousandth comic was expected to have its image at address '',",
-//            response.img == ""
-//        )
+        assertTrue(
+            "Thousandth comic was expected to have a transcript as follow '[[1000 characters, numerous of which have appeared previously in other comics, are arranged to create the number \\\"1000\\\". Two more people stand in the foreground commenting on the formation]]\\n\\nPerson 1: WOOOO!\\nPerson 2: Wow - Just 24 to go until a big round-number milestone!\\n\\n{{Title text: Thank you for making me feel less alone.}}",
+            response.transcript == "[[1000 characters, numerous of which have appeared previously in other comics, are arranged to create the number \"1000\". Two more people stand in the foreground commenting on the formation]]\n\nPerson 1: WOOOO!\nPerson 2: Wow - Just 24 to go until a big round-number milestone!\n\n{{Title text: Thank you for making me feel less alone.}}"
+        )
+        assertTrue(
+            "Thousandth comic was expected to have an alt text as follows 'Thank you for making me feel less alone.'",
+            response.alt == "Thank you for making me feel less alone."
+        )
+        assertTrue(
+            "Thousandth comic was expected to have its image at address '',",
+            response.img == "https://imgs.xkcd.com/comics/1000_comics.png"
+        )
         assertTrue(
             "Thousandth comic was expected to have its title as follows '1000 Comics'",
             response.title == "1000 Comics"
