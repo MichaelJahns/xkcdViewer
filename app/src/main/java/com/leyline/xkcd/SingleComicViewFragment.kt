@@ -12,9 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import com.facebook.drawee.view.SimpleDraweeView
 import com.leyline.xkcd.comic.ComicViewModel
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SingleComicViewFragment : Fragment() {
-    private lateinit var viewModel: ComicViewModel
+    private val viewModel by sharedViewModel<ComicViewModel>()
     private lateinit var comicImageView: SimpleDraweeView
     private lateinit var firstComicTextView: TextView
     private lateinit var lastComicTextView: TextView
@@ -25,8 +26,6 @@ class SingleComicViewFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ComicViewModel::class.java)
-        viewModel.currentComicId.value = 1
         lifecycleScope.launchWhenCreated {
             viewModel.updateLatestComicId()
         }
@@ -53,8 +52,8 @@ class SingleComicViewFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.uiState.observe(viewLifecycleOwner) { ComicDataModel ->
-            val imageUrl: String = ComicDataModel.img
+        viewModel.uiState.observe(viewLifecycleOwner) { comicDataModel ->
+            val imageUrl: String = comicDataModel.img
             val imageUri: Uri = Uri.parse(imageUrl)
             comicImageView.setImageURI(imageUri, null)
         }
@@ -73,6 +72,9 @@ class SingleComicViewFragment : Fragment() {
         }
         lastComicTextView.setOnClickListener {
             viewModel.decrementCurrentComic()
+        }
+        comicInfoTextView.setOnClickListener {
+            viewModel.setInfoScreen(isShowing = true)
         }
         nextComicTextView.setOnClickListener {
             viewModel.incrementCurrentComic()

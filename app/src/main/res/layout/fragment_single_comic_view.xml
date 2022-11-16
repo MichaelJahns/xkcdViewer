@@ -8,9 +8,8 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/img_ImgV"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingHorizontal="16dp"
         fresco:layout_constraintBottom_toTopOf="@id/navigation"
         fresco:layout_constraintEnd_toEndOf="parent"
         fresco:layout_constraintStart_toStartOf="parent"
@@ -22,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_gravity="center"
-        android:background="@color/grey"
         android:orientation="horizontal"
         fresco:layout_constraintBottom_toBottomOf="parent"
         fresco:layout_constraintEnd_toEndOf="parent"
@@ -33,45 +31,46 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
             android:text="@string/action_to_first_comic"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textAppearance="@style/label_style" />
 
         <TextView
             android:id="@+id/last_comic_TV"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
             android:text="@string/action_to_last_comic"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textAppearance="@style/label_style" />
 
         <TextView
             android:id="@+id/comic_info_TV"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
             android:text="@string/action_to_comic_info"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+
+            android:textAppearance="@style/label_style" />
 
         <TextView
             android:id="@+id/next_comic_TV"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
             android:text="@string/action_to_next_comic"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textAppearance="@style/label_style" />
 
         <TextView
             android:id="@+id/latest_comic_TV"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
             android:text="@string/action_to_latest_comic"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textAppearance="@style/label_style" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jahns/projects/Android/xkcdViewer/app/src/main/res/drawable/loading_iamge.xml" value="0.2295" />
+        <entry key="..\:/Users/jahns/projects/Android/xkcdViewer/app/src/main/res/drawable/loading_image.xml" value="0.2295" />
         <entry key="..\:/Users/jahns/projects/Android/xkcdViewer/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/jahns/projects/Android/xkcdViewer/app/src/main/res/layout/fragment_single_comic_view.xml" value="0.1" />
+        <entry key="..\:/Users/jahns/projects/Android/xkcdViewer/app/src/main/res/layout/fragment_single_comic_info.xml" value="0.2484375" />
+        <entry key="..\:/Users/jahns/projects/Android/xkcdViewer/app/src/main/res/layout/fragment_single_comic_view.xml" value="0.22" />
       </map>
     </option>
   </component>
