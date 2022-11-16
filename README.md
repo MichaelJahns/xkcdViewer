@@ -2,18 +2,17 @@
 Two Screen Kotlin Android Application utilizing the public api for [xkcd comics](https://xkcd.com/) available [here](https://xkcd.com/info.0.json) to create a simple comic strip viewer. 
 
 ## Implementation
-The limitations of the the public API mean I cannot query a range of entries or chain requests like what may be possible with more sophisticated API's. The only lookups available are comicById and comicByLatest.
+The limitations of the the public API means I cannot query a range of entries or chain requests like what may be possible with more sophisticated API's. The only lookups available are comicById and comicByLatest.
 
-Screen 1: SingleComicViewFragment to display a single comic at a time, fresco for image loading. This view has a navigation bar to allow users to move in a limited fashion through the comic history
+Screen 1: SingleComicViewFragment to display a single comic at a time, fresco for image loading. This view has a navigation bar to allow users to move in a limited fashion through the comic history, lite logic to ensure the id never goes out of bounds
 
-Screen 1: SingleComicInfoFragment to display a single comics complete metadata without an image, including title, alt text, and transcript, release Date build from year/mon/day
-
-
+Screen 2: SingleComicInfoFragment to display a single comics complete metadata without an image, including title, alt text, and transcript, release Date build from year/mon/day
 
 ### Dependencies
+* GSON:       Serialize/Deserialize
+* Retrofit:   Type-Safe Http Client
+* Coroutune:  Kotlin Threading
 * Freso:      Image Loading and Placeholders
-* Retrofit:   Httpcalls
-* Room:       Caching non trivial amounts of comic metadata
 
 ### Retrospective
 The nature of the material available on this API was comics, and that had some implications I was ready to deal with, and some I was not.
@@ -25,4 +24,4 @@ The nature of the material available on this API was comics, and that had some i
 * Cache comic history into Room database. Comics are static objects, Randall has no cause to go backwards in his comic history and make updates, I would have liked to store the entire comic catalouges metadata in a local database and request images as needed. This would minimize repeat requests, and would allow me to introduce features I would have liked to have on the API available on my DAO, ie. comicsByIdRange, comicsByTitle, comicsByYear, comicsByMonth, comicsByDay, etc..
 
 #### Disclaimers and Licenses
-I did not write or contribute in any meaningful way to the production or distribution any xkcd comic(s), they are licensed under the [Creative Commons Attribution-NonCommerical 2.5 License](https://xkcd.com/license.html) for noncommerical reuse and copy. 
+I did not write or contribute in any meaningful way to the production or distribution any xkcd comic(s) by Randall Munroe, they are licensed under the [Creative Commons Attribution-NonCommerical 2.5 License](https://xkcd.com/license.html) for noncommerical reuse and copy. 
