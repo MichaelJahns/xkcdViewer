@@ -2,8 +2,8 @@
 <resources>
 
     <style name="label_style">
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">24sp</item>
+        <item name="color">@color/grey</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="metadata_style">
