@@ -1,6 +1,7 @@
 package com.leyline.xkcd
 
 import android.app.Application
+import com.leyline.xkcd.util.networkingModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext

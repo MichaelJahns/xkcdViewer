@@ -89,7 +89,7 @@ class ComicViewModelTest {
         assertEquals(
             message = "Expected safe_title to be 1000 Comics",
             expected = "1000 Comics",
-            actual = model.safe_title
+            actual = model.safeTitle
         )
         assertEquals(
             message = "Expected transcript to be ",
