@@ -57,9 +57,7 @@ class SingleComicViewFragment : Fragment() {
 
     private fun initClickListeners() {
         firstComicTextView.setOnClickListener {
-            lifecycleScope.launch {
-                viewModel.requestFirstComic()
-            }
+            viewModel.requestFirstComic()
         }
         lastComicTextView.setOnClickListener {
             viewModel.decrementCurrentComic()
@@ -71,9 +69,7 @@ class SingleComicViewFragment : Fragment() {
             viewModel.incrementCurrentComic()
         }
         latestComicTextView.setOnClickListener {
-            lifecycleScope.launch {
-                viewModel.requestLatestComic()
-            }
+            viewModel.requestLatestComic()
         }
     }
 

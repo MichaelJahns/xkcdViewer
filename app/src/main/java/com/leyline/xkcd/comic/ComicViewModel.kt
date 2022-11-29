@@ -3,7 +3,9 @@ package com.leyline.xkcd.comic
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.leyline.xkcd.util.ComicApi
+import kotlinx.coroutines.launch
 import org.koin.java.KoinJavaComponent.inject
 
 val comic404 = ComicDataModel(
@@ -20,7 +22,7 @@ val comic404 = ComicDataModel(
     "Unknown"
 )
 
-class ComicViewModel : ViewModel() {
+class ComicViewModel: ViewModel() {
 
     private val comicApi: ComicApi by inject(ComicApi::class.java)
     private val _uiState = MutableLiveData<ComicDataModel>()
@@ -34,23 +36,27 @@ class ComicViewModel : ViewModel() {
         showInfoScreen.value = isShowing
     }
 
-    suspend fun getComicById(id: Int) {
-        if (id == 404) {
-            _uiState.value = comic404
-        } else {
-            val comic = comicApi.getComicByIdAsync(id)
-            _uiState.value = comic
+    fun getComicById(id: Int) {
+        viewModelScope.launch {
+            if (id == 404) {
+                _uiState.value = comic404
+            } else {
+                val comic = comicApi.getComicByIdAsync(id)
+                _uiState.value = comic
+            }
         }
-
     }
 
-    suspend fun requestFirstComic() {
-        val comic = comicApi.getComicByIdAsync(1)
-        currentComicId.value = comic.num
+    fun requestFirstComic() {
+        viewModelScope.launch {
+            val comic = comicApi.getComicByIdAsync(1)
+            currentComicId.value = comic.num
+        }
     }
 
-    suspend fun requestComicById(id: Int) {
+   fun requestComicById(id: Int) {
         /**If latestComicId is null call requestLatestComic() */
+       viewModelScope.launch {
         if (latestComicId.value != null) {
             /** When a request goes out of bounds set current id to the mock 404 error comic */
             if (id > latestComicId.value!! || id < 1) {
@@ -62,14 +68,16 @@ class ComicViewModel : ViewModel() {
             requestLatestComic()
             requestComicById(id)
         }
-
+       }
     }
 
     /**This is a required call. if latestComicId is null the above fails. */
-    suspend fun requestLatestComic() {
-        val comic = comicApi.getLatestComicAsync()
-        currentComicId.value = comic.num
-        latestComicId.value = comic.num
+    fun requestLatestComic(){
+        viewModelScope.launch {
+            val comic = comicApi.getLatestComicAsync()
+            currentComicId.value = comic.num
+            latestComicId.value = comic.num
+        }
     }
 
     fun decrementCurrentComic() {

@@ -1,7 +1,6 @@
 package com.leyline.xkcd
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,14 +23,11 @@ class SingleComicInfoFragment : Fragment() {
     private lateinit var transcriptTextView: TextView
     private lateinit var altTextView: TextView
 
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_single_comic_info, container, false)
         initView(view)
         initObservers()
-        initClickListeners()
         return view
     }
 
@@ -51,7 +47,7 @@ class SingleComicInfoFragment : Fragment() {
     private fun initObservers(){
         viewModel.uiState.observe(viewLifecycleOwner){ comicDataModel ->
             releaseNumberTextView.text = comicDataModel.num.toString()
-            releaseTitleTextView.text = comicDataModel.safe_title
+            releaseTitleTextView.text = comicDataModel.safeTitle
             releaseYearTextView.text = comicDataModel.year
             releaseMonthTextView.text = comicDataModel.month
             releaseDayTextView.text = comicDataModel.day
@@ -62,9 +58,4 @@ class SingleComicInfoFragment : Fragment() {
             altTextView.text = comicDataModel.alt
         }
     }
-
-    private fun initClickListeners(){
-
-    }
-
 }

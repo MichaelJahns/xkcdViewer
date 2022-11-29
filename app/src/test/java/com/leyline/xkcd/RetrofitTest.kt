@@ -35,7 +35,7 @@ class RetrofitTest {
         assertTrue("First comic was expected to have an empty news", response.news == "")
         assertTrue(
             "First comic was expected to have its safe_title as follows 'Barrel - Part 1'",
-            response.safe_title == "Barrel - Part 1"
+            response.safeTitle == "Barrel - Part 1"
         )
         assertTrue(
             "First comic was expected to have a transcript as follows '[[A boy sits in a barrel which is floating in an ocean.]]\\nBoy: I wonder where I'll float next?\\n[[The barrel drifts into the distance. Nothing else can be seen.]]\\n{{Alt: Don't we all.}}\"'",
@@ -73,7 +73,7 @@ class RetrofitTest {
         assertTrue("Hundredth comic was expected to have an empty news", response.news == "")
         assertTrue(
             "Hundredth comic was expected to have its safe_title as follows 'Family Circus'",
-            response.safe_title == "Family Circus"
+            response.safeTitle == "Family Circus"
         )
         assertTrue(
             "Hundredth comic was expected to have a transcript as follow '[[Picture shows a pathway winding through trees to a sink inside a house, out to some swings and back to ths sink, out to a ball and back to the sink...]]\\nCaption: Jeffy's ongoing struggle with obsessive-compulsive disorder\\n{{alt text: This was my friend David's idea}}'",
@@ -113,7 +113,7 @@ class RetrofitTest {
         assertTrue("Thousandth comic was expected to have an empty news", response.news == "")
         assertTrue(
             "Thousandth comic was expected to have its safe_title as follows '1000 Comics'",
-            response.safe_title == "1000 Comics"
+            response.safeTitle == "1000 Comics"
         )
         assertTrue(
             "Thousandth comic was expected to have a transcript as follow '[[1000 characters, numerous of which have appeared previously in other comics, are arranged to create the number \\\"1000\\\". Two more people stand in the foreground commenting on the formation]]\\n\\nPerson 1: WOOOO!\\nPerson 2: Wow - Just 24 to go until a big round-number milestone!\\n\\n{{Title text: Thank you for making me feel less alone.}}",

@@ -1,5 +1,6 @@
 package com.leyline.xkcd
 
+import com.leyline.xkcd.util.networkingModule
 import org.junit.Rule
 import org.junit.Test
 import org.koin.test.KoinTest

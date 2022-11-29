@@ -14,7 +14,8 @@
         fresco:layout_constraintEnd_toEndOf="parent"
         fresco:layout_constraintStart_toStartOf="parent"
         fresco:layout_constraintTop_toTopOf="parent"
-        fresco:placeholderImage="@drawable/loading_image" />
+        fresco:placeholderImage="@drawable/loading_image"
+        fresco:actualImageScaleType="fitCenter"/>
 
     <LinearLayout
         android:id="@+id/navigation"
