@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigraph"
+    app:startDestination="@id/singleComicViewFragment">
+
+    <fragment
+        android:id="@+id/singleComicViewFragment"
+        android:name="com.leyline.xkcd.SingleComicViewFragment"
+        android:label="fragment_single_comic_view"
+        tools:layout="@layout/fragment_single_comic_view" >
+        <action
+            android:id="@+id/action_singleComicViewFragment_to_singleComicInfoFragment"
+            app:destination="@id/singleComicInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/singleComicInfoFragment"
+        android:name="com.leyline.xkcd.SingleComicInfoFragment"
+        android:label="fragment_single_comic_info"
+        tools:layout="@layout/fragment_single_comic_info" >
+        <action
+            android:id="@+id/action_singleComicInfoFragment_to_singleComicViewFragment"
+            app:destination="@id/singleComicViewFragment" />
+    </fragment>
+</navigation>

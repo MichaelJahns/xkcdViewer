@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.facebook.drawee.view.SimpleDraweeView
 import com.leyline.xkcd.comic.ComicViewModel
 import kotlinx.coroutines.launch
@@ -34,6 +35,7 @@ class SingleComicViewFragment : Fragment() {
     }
 
     private fun initView(view: View) {
+        // Could be removed with databinding, I personally like have this block here.
         comicImageView = view.findViewById(R.id.img_ImgV) as SimpleDraweeView
         firstComicTextView = view.findViewById(R.id.first_comic_TV)
         lastComicTextView = view.findViewById(R.id.last_comic_TV)
@@ -63,7 +65,8 @@ class SingleComicViewFragment : Fragment() {
             viewModel.decrementCurrentComic()
         }
         comicInfoTextView.setOnClickListener {
-            viewModel.setInfoScreen(isShowing = true)
+            val action = SingleComicViewFragmentDirections.actionSingleComicViewFragmentToSingleComicInfoFragment()
+            findNavController().navigate(action)
         }
         nextComicTextView.setOnClickListener {
             viewModel.incrementCurrentComic()
@@ -71,6 +74,8 @@ class SingleComicViewFragment : Fragment() {
         latestComicTextView.setOnClickListener {
             viewModel.requestLatestComic()
         }
+        // Request latest comic once
+        viewModel.requestLatestComic()
     }
 
 }
