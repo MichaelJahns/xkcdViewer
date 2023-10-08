@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -55,6 +56,10 @@ dependencies {
     // Koin
     implementation "io.insert-koin:koin-core:3.2.2"
     implementation "io.insert-koin:koin-android:3.2.2"
+    // Navigation
+    var nav_version = "2.5.3"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     /** Test Dependencies */
     // Koin for Tests
@@ -64,6 +69,8 @@ dependencies {
     // Robo Electric
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.robolectric:robolectric:4.8'
+    // Testing Navigation
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
     testImplementation 'com.squareup.okhttp3:okhttp:4.10.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'

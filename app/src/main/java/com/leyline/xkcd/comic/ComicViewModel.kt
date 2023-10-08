@@ -30,14 +30,10 @@ class ComicViewModel: ViewModel() {
 
     private val latestComicId = MutableLiveData<Int>()
     val currentComicId = MutableLiveData<Int>()
-    val showInfoScreen = MutableLiveData<Boolean>()
-
-    fun setInfoScreen(isShowing: Boolean) {
-        showInfoScreen.value = isShowing
-    }
 
     fun getComicById(id: Int) {
         viewModelScope.launch {
+            // Randal Monroe, funny man, has the url for comic #404 open a 404 cant find
             if (id == 404) {
                 _uiState.value = comic404
             } else {

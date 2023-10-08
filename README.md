@@ -19,7 +19,7 @@ Screen 2: SingleComicInfoFragment linear layout to display a single comics compl
 ### Dependencies
 * GSON:       Serialize/Deserialize
 * Retrofit:   Type-Safe Http Client
-* Coroutune:  Kotlin Threading
+* Coroutine:  Kotlin Threading
 * Freso:      Image Loading and Placeholders
 * Koin:       Kotlin Dependency Injection
 * Robolectric:ViewModel Testing
